@@ -1,12 +1,15 @@
 package io.pivio.ganges.maven;
 
 import io.pivio.ganges.maven.response.Info;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -15,6 +18,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class MavenRepositoryCrawler {
 
     private final RestTemplate restTemplate;
+    private final Logger log = LoggerFactory.getLogger(MavenRepositoryCrawler.class);
+
 
     @Autowired
     public MavenRepositoryCrawler(RestTemplateBuilder restTemplateBuilder) {
@@ -29,7 +34,8 @@ public class MavenRepositoryCrawler {
         try {
             ResponseEntity<Info> forEntity = restTemplate.getForEntity(uriComponents.toUri(), Info.class);
             return forEntity.getBody();
-        } catch (HttpStatusCodeException ex) {
+        } catch (RestClientException ex) {
+            log.error("Could not get information for {}:{} for request {}. Exception: {} ", group, name, uriComponents.toUriString(), ex.getMessage());
             return new Info();
         }
     }

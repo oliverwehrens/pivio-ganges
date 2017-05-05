@@ -1,5 +1,6 @@
 package io.pivio.ganges.maven;
 
+import io.pivio.ganges.TimeoutResponseCreator;
 import io.pivio.ganges.maven.response.Info;
 import jdk.nashorn.internal.runtime.ECMAException;
 import org.junit.Test;
@@ -59,6 +60,15 @@ public class MavenRepositoryCrawlerTest {
         server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:ERROR+AND+a:ERROR&core=gav&rows=200&wt=json"))
                 .andExpect(method(GET))
                 .andRespond(MockRestResponseCreators.withServerError());
+        Info information = mavenRepositoryCrawler.getInformation("ERROR", "ERROR");
+        assertThat(information.getResponse().getDocs()).hasSize(0);
+    }
+
+    @Test
+    public void testTimeout() throws Exception {
+        server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:ERROR+AND+a:ERROR&core=gav&rows=200&wt=json"))
+                .andExpect(method(GET))
+                .andRespond(TimeoutResponseCreator.withTimeout());
         Info information = mavenRepositoryCrawler.getInformation("ERROR", "ERROR");
         assertThat(information.getResponse().getDocs()).hasSize(0);
     }
