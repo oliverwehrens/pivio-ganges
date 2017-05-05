@@ -1,0 +1,710 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 1,
+    "params": {
+      "fl": "id,g,a,v,p,ec,timestamp,tags",
+      "sort": "score desc,timestamp desc,g asc,a asc,v desc",
+      "indent": "off",
+      "q": "g:junit AND a:junit",
+      "core": "gav",
+      "wt": "json",
+      "rows": "200",
+      "version": "2.2"
+    }
+  },
+  "response": {
+    "numFound": 24,
+    "start": 0,
+    "docs": [
+      {
+        "id": "junit:junit:4.12",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.12",
+        "p": "jar",
+        "timestamp": 1417709863000,
+        "tags": [
+          "unit",
+          "gamma",
+          "created",
+          "kent",
+          "testing",
+          "java",
+          "beck",
+          "junit",
+          "framework",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.12-beta-3",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.12-beta-3",
+        "p": "jar",
+        "timestamp": 1415548414000,
+        "tags": [
+          "unit",
+          "gamma",
+          "created",
+          "kent",
+          "testing",
+          "java",
+          "beck",
+          "junit",
+          "framework",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.12-beta-2",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.12-beta-2",
+        "p": "jar",
+        "timestamp": 1411624481000,
+        "tags": [
+          "unit",
+          "gamma",
+          "created",
+          "kent",
+          "testing",
+          "java",
+          "beck",
+          "junit",
+          "framework",
+          "erich"
+        ],
+        "ec": [
+          "-javadoc.jar",
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.12-beta-1",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.12-beta-1",
+        "p": "jar",
+        "timestamp": 1406493687000,
+        "tags": [
+          "unit",
+          "gamma",
+          "created",
+          "kent",
+          "testing",
+          "java",
+          "beck",
+          "junit",
+          "framework",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.11",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.11",
+        "p": "jar",
+        "timestamp": 1352920907000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-javadoc.jar",
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.11-beta-1",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.11-beta-1",
+        "p": "jar",
+        "timestamp": 1350330353000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-javadoc.jar",
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.10",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.10",
+        "p": "jar",
+        "timestamp": 1317323543000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-javadoc.jar",
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.9",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.9",
+        "p": "jar",
+        "timestamp": 1314036946000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.8.2",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.8.2",
+        "p": "jar",
+        "timestamp": 1286268687000,
+        "tags": [
+          "unit",
+          "tests",
+          "developer",
+          "implements",
+          "regression",
+          "testing",
+          "java",
+          "junit",
+          "used",
+          "framework"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.8",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.8",
+        "p": "jar",
+        "timestamp": 1286268656000,
+        "tags": [
+          "unit",
+          "tests",
+          "developer",
+          "implements",
+          "regression",
+          "testing",
+          "java",
+          "junit",
+          "used",
+          "framework"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.8.1",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.8.1",
+        "p": "jar",
+        "timestamp": 1267100518000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.7",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.7",
+        "p": "jar",
+        "timestamp": 1250092447000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.6",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.6",
+        "p": "jar",
+        "timestamp": 1241897886000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.5",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.5",
+        "p": "jar",
+        "timestamp": 1220534968000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.4",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.4",
+        "p": "jar",
+        "timestamp": 1187718463000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-javadoc.jar",
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.3",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.3",
+        "p": "jar",
+        "timestamp": 1179178561000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:3.7",
+        "g": "junit",
+        "a": "junit",
+        "v": "3.7",
+        "p": "jar",
+        "timestamp": 1179178534000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:3.8",
+        "g": "junit",
+        "a": "junit",
+        "v": "3.8",
+        "p": "jar",
+        "timestamp": 1179178521000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:3.8.2",
+        "g": "junit",
+        "a": "junit",
+        "v": "3.8.2",
+        "p": "jar",
+        "timestamp": 1179178493000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:3.8.1",
+        "g": "junit",
+        "a": "junit",
+        "v": "3.8.1",
+        "p": "jar",
+        "timestamp": 1179178458000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.3.1",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.3.1",
+        "p": "jar",
+        "timestamp": 1179178447000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.2",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.2",
+        "p": "jar",
+        "timestamp": 1170373650000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.1",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.1",
+        "p": "jar",
+        "timestamp": 1160134625000,
+        "tags": [
+          "kent",
+          "regression",
+          "junit",
+          "used",
+          "framework",
+          "unit",
+          "gamma",
+          "tests",
+          "developer",
+          "written",
+          "implements",
+          "beck",
+          "testing",
+          "java",
+          "erich"
+        ],
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      },
+      {
+        "id": "junit:junit:4.0",
+        "g": "junit",
+        "a": "junit",
+        "v": "4.0",
+        "p": "jar",
+        "timestamp": 1140290641000,
+        "ec": [
+          "-sources.jar",
+          "-javadoc.jar",
+          ".jar",
+          ".pom"
+        ]
+      }
+    ]
+  }
+}
