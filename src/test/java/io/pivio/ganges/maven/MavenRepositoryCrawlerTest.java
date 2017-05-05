@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.client.MockRestServiceServer;
 import org.springframework.test.web.client.response.MockRestResponseCreators;
 
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -34,7 +35,7 @@ public class MavenRepositoryCrawlerTest {
 
     @Test
     public void testGetInformation() throws Exception {
-        String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-result-found-response.json")));
+        String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-result-found-response.json")), Charset.defaultCharset());
         server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:junit+AND+a:junit&core=gav&rows=200&wt=json"))
                 .andExpect(method(GET)).andRespond(MockRestResponseCreators.withStatus(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -46,7 +47,7 @@ public class MavenRepositoryCrawlerTest {
 
     @Test
     public void testGetNoInformation() throws Exception {
-        String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-no-result-found-response.json")));
+        String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-no-result-found-response.json")), Charset.defaultCharset());
         server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:DUMMYDONOTEXISTS+AND+a:DUMMYDONOTEXISTS&core=gav&rows=200&wt=json"))
                 .andExpect(method(GET)).andRespond(MockRestResponseCreators.withStatus(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
