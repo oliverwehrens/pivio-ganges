@@ -1,5 +1,6 @@
 package io.pivio.ganges.maven;
 
+import io.pivio.ganges.RestClientExceptionResponseCreator;
 import io.pivio.ganges.TimeoutResponseCreator;
 import io.pivio.ganges.maven.response.Info;
 import jdk.nashorn.internal.runtime.ECMAException;
@@ -73,5 +74,13 @@ public class MavenRepositoryCrawlerTest {
         assertThat(information.getResponse().getDocs()).hasSize(0);
     }
 
+    @Test
+    public void testRestClientException() throws Exception {
+        server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:EXCEPTION+AND+a:EXCEPTION&core=gav&rows=200&wt=json"))
+                .andExpect(method(GET))
+                .andRespond(RestClientExceptionResponseCreator.withRestClientException());
+        Info information = mavenRepositoryCrawler.getInformation("EXCEPTION", "EXCEPTION");
+        assertThat(information.getResponse().getDocs()).hasSize(0);
+    }
 
 }
