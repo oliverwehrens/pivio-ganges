@@ -6,6 +6,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -25,7 +26,11 @@ public class MavenRepositoryCrawler {
         UriComponents uriComponents =
                 UriComponentsBuilder.fromUriString("http://search.maven.org/solrsearch/select?q={query}&core=gav&rows=200&wt=json").build()
                         .expand("g:" + group + "+AND+a:" + name + "");
-        ResponseEntity<Info> forEntity = restTemplate.getForEntity(uriComponents.toUri(), Info.class);
-        return forEntity.getBody();
+        try {
+            ResponseEntity<Info> forEntity = restTemplate.getForEntity(uriComponents.toUri(), Info.class);
+            return forEntity.getBody();
+        } catch (HttpStatusCodeException ex) {
+            return new Info();
+        }
     }
 }

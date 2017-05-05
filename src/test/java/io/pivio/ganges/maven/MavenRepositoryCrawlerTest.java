@@ -1,6 +1,7 @@
 package io.pivio.ganges.maven;
 
 import io.pivio.ganges.maven.response.Info;
+import jdk.nashorn.internal.runtime.ECMAException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class MavenRepositoryCrawlerTest {
     private MavenRepositoryCrawler mavenRepositoryCrawler;
 
     @Test
-    public void getInformation() throws Exception {
+    public void testGetInformation() throws Exception {
         String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-result-found-response.json")));
         server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:junit+AND+a:junit&core=gav&rows=200&wt=json"))
                 .andExpect(method(GET)).andRespond(MockRestResponseCreators.withStatus(HttpStatus.OK)
@@ -42,7 +43,7 @@ public class MavenRepositoryCrawlerTest {
     }
 
     @Test
-    public void getNoInformation() throws Exception {
+    public void testGetNoInformation() throws Exception {
         String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-no-result-found-response.json")));
         server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:DUMMYDONOTEXISTS+AND+a:DUMMYDONOTEXISTS&core=gav&rows=200&wt=json"))
                 .andExpect(method(GET)).andRespond(MockRestResponseCreators.withStatus(HttpStatus.OK)
@@ -50,6 +51,15 @@ public class MavenRepositoryCrawlerTest {
                 .body(expectedResponse));
 
         Info information = mavenRepositoryCrawler.getInformation("DUMMYDONOTEXISTS", "DUMMYDONOTEXISTS");
+        assertThat(information.getResponse().getDocs()).hasSize(0);
+    }
+
+    @Test
+    public void testHandleServerError() throws Exception {
+        server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:ERROR+AND+a:ERROR&core=gav&rows=200&wt=json"))
+                .andExpect(method(GET))
+                .andRespond(MockRestResponseCreators.withServerError());
+        Info information = mavenRepositoryCrawler.getInformation("ERROR", "ERROR");
         assertThat(information.getResponse().getDocs()).hasSize(0);
     }
 
