@@ -1,0 +1,21 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 69,
+    "params": {
+      "fl": "id,g,a,v,p,ec,timestamp,tags",
+      "sort": "score desc,timestamp desc,g asc,a asc,v desc",
+      "indent": "off",
+      "q": "g:DUMMYDONOTEXISTS AND a:DUMMYDONOTEXISTS",
+      "core": "gav",
+      "wt": "json",
+      "rows": "200",
+      "version": "2.2"
+    }
+  },
+  "response": {
+    "numFound": 0,
+    "start": 0,
+    "docs": []
+  }
+}

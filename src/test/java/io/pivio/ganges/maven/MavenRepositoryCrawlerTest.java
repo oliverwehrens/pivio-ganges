@@ -31,7 +31,7 @@ public class MavenRepositoryCrawlerTest {
 
     @Test
     public void getInformation() throws Exception {
-        String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-junit-response.json")));
+        String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-result-found-response.json")));
         server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:junit+AND+a:junit&core=gav&rows=200&wt=json"))
                 .andExpect(method(GET)).andRespond(MockRestResponseCreators.withStatus(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -40,5 +40,18 @@ public class MavenRepositoryCrawlerTest {
         Info information = mavenRepositoryCrawler.getInformation("junit", "junit");
         assertThat(information.getResponse().getDocs()).hasSize(24);
     }
+
+    @Test
+    public void getNoInformation() throws Exception {
+        String expectedResponse = new String(Files.readAllBytes(Paths.get("src/test/resources/maven-no-result-found-response.json")));
+        server.expect(requestTo("http://search.maven.org/solrsearch/select?q=g:DUMMYDONOTEXISTS+AND+a:DUMMYDONOTEXISTS&core=gav&rows=200&wt=json"))
+                .andExpect(method(GET)).andRespond(MockRestResponseCreators.withStatus(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .body(expectedResponse));
+
+        Info information = mavenRepositoryCrawler.getInformation("DUMMYDONOTEXISTS", "DUMMYDONOTEXISTS");
+        assertThat(information.getResponse().getDocs()).hasSize(0);
+    }
+
 
 }
