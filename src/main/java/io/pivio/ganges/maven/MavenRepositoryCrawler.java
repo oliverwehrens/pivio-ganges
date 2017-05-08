@@ -19,7 +19,6 @@ public class MavenRepositoryCrawler {
     private final RestTemplate restTemplate;
     private final Logger log = LoggerFactory.getLogger(MavenRepositoryCrawler.class);
 
-
     @Autowired
     public MavenRepositoryCrawler(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();

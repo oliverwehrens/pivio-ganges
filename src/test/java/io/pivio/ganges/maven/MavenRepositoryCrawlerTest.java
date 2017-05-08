@@ -3,7 +3,6 @@ package io.pivio.ganges.maven;
 import io.pivio.ganges.RestClientExceptionResponseCreator;
 import io.pivio.ganges.TimeoutResponseCreator;
 import io.pivio.ganges.maven.response.Info;
-import jdk.nashorn.internal.runtime.ECMAException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
