@@ -18,7 +18,9 @@ import java.util.Date;
         "latestVersion",
         "releaseDateAsString",
         "prettyTime",
-        "releaseDate"
+        "releaseDate",
+        "release_date",
+        "release_date_pretty"
 })
 
 public class Result {
