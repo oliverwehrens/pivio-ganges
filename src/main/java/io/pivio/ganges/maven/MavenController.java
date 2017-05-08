@@ -18,4 +18,6 @@ public class MavenController {
     public Result query(@PathVariable String groupId, @PathVariable String name, @PathVariable String version) {
         return mavenRepositoryService.getVersion(groupId, name, version).orElseThrow(() -> new VersionNotFoundException(groupId + ":" + name + ":" + version));
     }
+
+
 }
