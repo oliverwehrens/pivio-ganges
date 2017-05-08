@@ -32,7 +32,7 @@ public class Result {
     private Date releaseDate;
 
     @JsonProperty("latest_version")
-    private String latestVersion;
+    String latestVersion;
 
     @JsonProperty("group_id")
     private String groupId;
