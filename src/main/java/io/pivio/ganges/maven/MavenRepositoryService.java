@@ -22,7 +22,16 @@ public class MavenRepositoryService {
         if (document != null) {
             Date releaseDate = new Date();
             releaseDate.setTime(document.getTimestamp());
-            return Optional.of(new Result(Result.TYPE_MAVEN, releaseDate));
+            Long newestVersionTimestamp = 0L;
+            String latestVersion = "";
+            for (Doc doc : information.getResponse().getDocs()) {
+                if (doc.getTimestamp() > newestVersionTimestamp) {
+                    newestVersionTimestamp = doc.getTimestamp();
+                    latestVersion = doc.getV();
+                }
+            }
+            Result result = new Result(groupId, name, version, Result.TYPE_MAVEN, releaseDate, latestVersion);
+            return Optional.of(result);
         }
         return Optional.empty();
     }
