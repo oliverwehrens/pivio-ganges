@@ -8,11 +8,11 @@ import java.util.Date;
 import java.util.Optional;
 
 @Service
-public class MavenRepositoryService {
+class MavenRepositoryService {
 
     private MavenRepositoryCrawler mavenRepositoryCrawler;
 
-    public MavenRepositoryService(MavenRepositoryCrawler mavenRepositoryCrawler) {
+    MavenRepositoryService(MavenRepositoryCrawler mavenRepositoryCrawler) {
         this.mavenRepositoryCrawler = mavenRepositoryCrawler;
     }
 
