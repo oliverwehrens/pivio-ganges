@@ -1,5 +1,6 @@
 package io.pivio.ganges.maven;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,11 +46,12 @@ public class MavenControllerTest {
 
     @Test
     public void testGetResponse() throws Exception {
-        String expectedResult = "{\"repository_type\":\"maven\",\"group_id\":\"group\",\"name\":\"name\",\"version\":\"1\",\"latest_version\":\"2\",\"release_date\":\"Thu Jan 01 01:00:00 CET 1970\",\"release_date_pretty\":\"5 decades ago\",\"release_date_timestamp\":0}";
+        Result value = new Result("group", "name", "1", Result.TYPE_MAVEN, new Date(0), "2");
         given(this.mavenRepositoryService.getVersion("group", "name", "1"))
-                .willReturn(Optional.of(new Result("group", "name", "1", Result.TYPE_MAVEN, new Date(0), "2")));
+                .willReturn(Optional.of(value));
+        ObjectMapper o = new ObjectMapper();
         this.mvc.perform(get("/maven/group/name/1").accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(status().isOk()).andExpect(content().string(expectedResult));
+                .andExpect(status().isOk()).andExpect(content().string(o.writeValueAsString(value)));
     }
 
     @Test

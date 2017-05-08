@@ -30,7 +30,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+	compile('org.apache.commons:commons-lang3:3.5')
+	compile('org.ocpsoft.prettytime:prettytime:4.0.1.Final')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
