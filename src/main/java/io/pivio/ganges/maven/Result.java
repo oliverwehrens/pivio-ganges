@@ -82,7 +82,7 @@ public class Result {
 
     @JsonProperty("latest_version_release_date_pretty")
     public String getLatestVersionReleaseDatePretty() {
-        return latestVersionReleaseDate.toString();
+        return new PrettyTime().format(latestVersionReleaseDate);
     }
 
 
