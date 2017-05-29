@@ -17,10 +17,14 @@ import java.util.Date;
         "groupId",
         "name",
         "version",
-        "latestVersion",
         "releaseDateAsString",
-        "prettyTime",
-        "releaseDate"
+        "releaseDate",
+        "releaseDatePretty",
+        "latestVersion",
+        "LatestVersionReleaseDateAsString",
+        "latestVersionReleaseDate",
+        "latestVersionReleaseDatePretty",
+        "versionsToLatestVersion"
 })
 
 public class Result {
@@ -28,12 +32,16 @@ public class Result {
     static volatile String TYPE_MAVEN = "maven";
     @JsonProperty("latest_version")
     String latestVersion;
+    @JsonProperty("latest_version_release_date_timestamp")
+    private Date latestVersionReleaseDate;
     @JsonProperty("repository_type")
     private String repositoryType;
     @JsonProperty("release_date_timestamp")
     private Date releaseDate;
     @JsonProperty("group_id")
     private String groupId;
+    @JsonProperty("versions_to_latest_version")
+    int versionsToLatestVersion;
 
     @JsonProperty("name")
     private String name;
@@ -45,13 +53,15 @@ public class Result {
     public Result() {
     }
 
-    Result(String groupId, String name, String version, String repositoryType, Date releaseDate, String latestVersion) {
+    Result(String groupId, String name, String version, String repositoryType, Date releaseDate, String latestVersion, Date latestVersionReleaseDate, int versionsToLatestVersion) {
         this.groupId = groupId;
         this.name = name;
         this.repositoryType = repositoryType;
         this.releaseDate = releaseDate;
         this.version = version;
         this.latestVersion = latestVersion;
+        this.latestVersionReleaseDate = latestVersionReleaseDate;
+        this.versionsToLatestVersion = versionsToLatestVersion;
     }
 
     @JsonProperty("release_date")
@@ -61,8 +71,18 @@ public class Result {
     }
 
     @JsonProperty("release_date_pretty")
-    public String getPrettyTime() {
+    public String getReleaseDatePretty() {
         return new PrettyTime().format(releaseDate);
+    }
+
+    @JsonProperty("latest_version_release_date")
+    public String getLatestVersionReleaseDateAsString() {
+        return latestVersionReleaseDate.toString();
+    }
+
+    @JsonProperty("latest_version_release_date_pretty")
+    public String getLatestVersionReleaseDatePretty() {
+        return latestVersionReleaseDate.toString();
     }
 
 
@@ -75,7 +95,9 @@ public class Result {
         Result result = (Result) o;
 
         return new EqualsBuilder()
+                .append(versionsToLatestVersion, result.versionsToLatestVersion)
                 .append(latestVersion, result.latestVersion)
+                .append(latestVersionReleaseDate, result.latestVersionReleaseDate)
                 .append(repositoryType, result.repositoryType)
                 .append(releaseDate, result.releaseDate)
                 .append(groupId, result.groupId)
@@ -88,9 +110,11 @@ public class Result {
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
                 .append(latestVersion)
+                .append(latestVersionReleaseDate)
                 .append(repositoryType)
                 .append(releaseDate)
                 .append(groupId)
+                .append(versionsToLatestVersion)
                 .append(name)
                 .append(version)
                 .toHashCode();

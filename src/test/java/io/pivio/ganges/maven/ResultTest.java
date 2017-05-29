@@ -13,7 +13,7 @@ public class ResultTest {
 
     @Test
     public void testConstructorMapping() throws IOException {
-        Result result = new Result("group", "name", "version", "repo", new Date(0), "latest");
+        Result result = new Result("group", "name", "version", "repo", new Date(0), "latest", new Date(1), 0);
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(result);
         Result rebuild = objectMapper.readValue(json, Result.class);

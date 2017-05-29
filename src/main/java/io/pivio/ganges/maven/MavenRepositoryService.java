@@ -24,13 +24,25 @@ class MavenRepositoryService {
             releaseDate.setTime(document.getTimestamp());
             Long newestVersionTimestamp = 0L;
             String latestVersion = "";
+
+            Date latestVersionReleaseDate = new Date();
+            latestVersionReleaseDate.setTime(document.getTimestamp());
+
+            int versionsBetweenLatestAndAsked = 0;
+
             for (Doc doc : information.getResponse().getDocs()) {
+                if (document.getTimestamp() < doc.getTimestamp()) {
+                    versionsBetweenLatestAndAsked++;
+                }
                 if (doc.getTimestamp() > newestVersionTimestamp) {
                     newestVersionTimestamp = doc.getTimestamp();
                     latestVersion = doc.getV();
+                    latestVersionReleaseDate.setTime(doc.getTimestamp());
                 }
             }
-            Result result = new Result(groupId, name, version, Result.TYPE_MAVEN, releaseDate, latestVersion);
+
+
+            Result result = new Result(groupId, name, version, Result.TYPE_MAVEN, releaseDate, latestVersion, latestVersionReleaseDate, versionsBetweenLatestAndAsked);
             return Optional.of(result);
         }
         return Optional.empty();

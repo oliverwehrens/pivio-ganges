@@ -31,6 +31,7 @@ public class MavenRepositoryCrawler {
                         .expand("g:" + group + "+AND+a:" + name + "");
         try {
             ResponseEntity<Info> forEntity = restTemplate.getForEntity(uriComponents.toUri(), Info.class);
+            log.info(forEntity.getBody().toString());
             return forEntity.getBody();
         } catch (RestClientException ex) {
             log.error("Could not get information for {}:{} for request {}. Exception: {} ", group, name, uriComponents.toUriString(), ex.getMessage());

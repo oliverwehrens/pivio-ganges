@@ -46,7 +46,7 @@ public class MavenControllerTest {
 
     @Test
     public void testGetResponse() throws Exception {
-        Result value = new Result("group", "name", "1", Result.TYPE_MAVEN, new Date(0), "2");
+        Result value = new Result("group", "name", "1", Result.TYPE_MAVEN, new Date(0), "2", new Date(1), 0);
         given(this.mavenRepositoryService.getVersion("group", "name", "1"))
                 .willReturn(Optional.of(value));
         ObjectMapper o = new ObjectMapper();

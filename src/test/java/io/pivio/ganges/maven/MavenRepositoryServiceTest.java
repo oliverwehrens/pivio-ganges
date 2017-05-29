@@ -25,7 +25,9 @@ public class MavenRepositoryServiceTest {
     @Test
     public void testEmptyResponse() throws Exception {
         Info info = new Info();
+
         when(mavenRepositoryCrawlerMock.getInformation("groupId", "name")).thenReturn(info);
+
         Optional<Result> version = mavenRepositoryService.getVersion("groupId", "name", "1");
         assertThat(version.isPresent()).isFalse();
     }
@@ -39,9 +41,29 @@ public class MavenRepositoryServiceTest {
         info.getResponse().getDocs().add(askedVersion);
         info.getResponse().getDocs().add(midVersion);
         info.getResponse().getDocs().add(newerVersion);
+
         when(mavenRepositoryCrawlerMock.getInformation("groupId", "name")).thenReturn(info);
+
         Optional<Result> version = mavenRepositoryService.getVersion("groupId", "name", "1");
         assertThat(version.get().latestVersion).isEqualTo("3");
+    }
+
+    @Test
+    public void testVersionsToLatestVersion() throws Exception {
+        Info info = new Info();
+        Doc askedVersion = createDoc("group", "name", "1", 1000L);
+        Doc midVersion = createDoc("group", "name", "2", 2000L);
+        Doc newerVersion = createDoc("group", "name", "3", 3000L);
+        Doc latestVersion = createDoc("group", "name", "3", 4000L);
+        info.getResponse().getDocs().add(askedVersion);
+        info.getResponse().getDocs().add(midVersion);
+        info.getResponse().getDocs().add(newerVersion);
+        info.getResponse().getDocs().add(latestVersion);
+
+        when(mavenRepositoryCrawlerMock.getInformation("groupId", "name")).thenReturn(info);
+        Optional<Result> version = mavenRepositoryService.getVersion("groupId", "name", "1");
+        assertThat(version.get().versionsToLatestVersion).isEqualTo(3);
+
     }
 
     private Doc createDoc(String group, String name, String version, long timestamp) {
