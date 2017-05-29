@@ -13,18 +13,18 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
-        "repositoryType",
-        "groupId",
+        "repository_type",
+        "group_id",
         "name",
         "version",
-        "releaseDateAsString",
-        "releaseDate",
-        "releaseDatePretty",
-        "latestVersion",
-        "LatestVersionReleaseDateAsString",
-        "latestVersionReleaseDate",
-        "latestVersionReleaseDatePretty",
-        "versionsToLatestVersion"
+        "release_date_timestamp",
+        "release_date",
+        "release_date_pretty",
+        "latest_version",
+        "latest_version_release_date_timestamp",
+        "latest_version_release_date",
+        "latest_version_release_date_pretty",
+        "versions_to_latest_version"
 })
 
 public class Result {
@@ -42,10 +42,8 @@ public class Result {
     private String groupId;
     @JsonProperty("versions_to_latest_version")
     int versionsToLatestVersion;
-
     @JsonProperty("name")
     private String name;
-
     @JsonProperty("version")
     private String version;
 
